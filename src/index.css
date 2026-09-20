@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink: #14213D;
+    --paper: #F3F5F1;
+    --ward-green: #2F6F4E;
+    --signal-amber: #D98E2A;
+    --brick-red: #B23A2E;
+    --slate: #5B6470;
+    --hairline: #D8DCD4;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
