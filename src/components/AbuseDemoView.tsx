@@ -53,19 +53,19 @@ export const AbuseDemoView: React.FC<AbuseDemoViewProps> = ({ onGoToQueue }) => 
         {/* The two actors */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-xs">
           <div className="bg-[#F3F5F1] p-3 border-l-4 border-[#14213D]">
-            <span className="font-mono text-[10px] uppercase text-[#5B6470] block">Staff Actor</span>
-            <span className="font-semibold text-sm text-[#14213D] block">{clerk.name}</span>
+            <span className="font-mono text-sm uppercase text-[#5B6470] block">Staff Actor</span>
+            <span className="font-semibold text-base text-[#14213D] block">{clerk.name}</span>
             <span className="text-[#5B6470]">Role: {clerk.role} &middot; Ward: {clerk.ward}</span>
-            <span className="text-[11px] text-[#B23A2E] block mt-1 font-mono">
+            <span className="text-sm text-[#B23A2E] block mt-1 font-mono">
               [No Duty Grant for Cardiology]
             </span>
           </div>
 
           <div className="bg-[#F3F5F1] p-3 border-l-4 border-[#D98E2A]">
-            <span className="font-mono text-[10px] uppercase text-[#5B6470] block">Target Patient File</span>
-            <span className="font-semibold text-sm text-[#14213D] block">{targetPatient.name}</span>
+            <span className="font-mono text-sm uppercase text-[#5B6470] block">Target Patient File</span>
+            <span className="font-semibold text-base text-[#14213D] block">{targetPatient.name}</span>
             <span className="text-[#5B6470]">Ward: {targetPatient.ward} &middot; Room: {targetPatient.roomBed}</span>
-            <span className="text-[11px] text-[#D98E2A] block mt-1 font-mono">
+            <span className="text-sm text-[#D98E2A] block mt-1 font-mono">
               [Confidential VIP Cardiac Chart]
             </span>
           </div>
@@ -105,7 +105,7 @@ export const AbuseDemoView: React.FC<AbuseDemoViewProps> = ({ onGoToQueue }) => 
             </p>
           </div>
 
-          <div className="space-y-2 font-mono text-[11px] text-[#5B6470] bg-[#F3F5F1] p-3 border border-[#D8DCD4] mb-4">
+          <div className="space-y-2 font-mono text-sm text-[#5B6470] bg-[#F3F5F1] p-3 border border-[#D8DCD4] mb-4">
             <div>
               <span className="text-[#14213D] font-semibold">Violation:</span> Role-Ward Duty Mismatch (Clerk &rarr; Cardiology VIP file)
             </div>

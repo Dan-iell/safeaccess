@@ -134,7 +134,7 @@ export const PatientQRCardView: React.FC = () => {
         {/* Card Header */}
         <div className="border-b-2 border-[#14213D] pb-3 mb-4 flex items-center justify-between">
           <div>
-            <div className="text-[10px] font-mono uppercase tracking-widest text-[#5B6470]">
+            <div className="text-sm font-mono uppercase tracking-widest text-[#5B6470]">
               Federal Republic of Nigeria &middot; Tertiary Health System
             </div>
             <div className="font-serif text-lg font-bold text-[#14213D]">
@@ -143,7 +143,7 @@ export const PatientQRCardView: React.FC = () => {
           </div>
           <div className="text-right font-mono text-xs text-[#14213D]">
             <span className="block font-bold">EMERGENCY DATASET</span>
-            <span className="text-[10px] text-[#5B6470]">VALID 2026-2027</span>
+            <span className="text-sm text-[#5B6470]">VALID 2026-2027</span>
           </div>
         </div>
 
@@ -158,7 +158,7 @@ export const PatientQRCardView: React.FC = () => {
               fgColor="#14213D"
               bgColor="#F3F5F1"
             />
-            <span className="text-[9px] font-mono text-[#5B6470] mt-2 tracking-tighter">
+            <span className="text-xs font-mono text-[#5B6470] mt-2 tracking-tighter">
               CRYPT-SIGN: {currentPatient.id}
             </span>
           </div>
@@ -166,7 +166,7 @@ export const PatientQRCardView: React.FC = () => {
           {/* Core Info Column */}
           <div className="col-span-12 sm:col-span-8 space-y-2 text-xs">
             <div>
-              <span className="text-[10px] font-mono text-[#5B6470] uppercase block">
+              <span className="text-sm font-mono text-[#5B6470] uppercase block">
                 Patient Full Name
               </span>
               <span className="font-serif text-base font-bold text-[#14213D] block">
@@ -176,13 +176,13 @@ export const PatientQRCardView: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-2 bg-[#F3F5F1] p-2 border border-[#D8DCD4]">
               <div>
-                <span className="text-[10px] font-mono text-[#5B6470] block">Blood Group:</span>
+                <span className="text-sm font-mono text-[#5B6470] block">Blood Group:</span>
                 <span className="font-mono text-sm font-bold text-[#14213D]">
                   {currentPatient.bloodType}
                 </span>
               </div>
               <div>
-                <span className="text-[10px] font-mono text-[#5B6470] block">Genotype:</span>
+                <span className="text-sm font-mono text-[#5B6470] block">Genotype:</span>
                 <span className={`font-mono text-sm font-bold ${currentPatient.genotype === 'SS' ? 'text-[#D98E2A]' : 'text-[#14213D]'}`}>
                   {currentPatient.genotype}
                 </span>
@@ -190,10 +190,10 @@ export const PatientQRCardView: React.FC = () => {
             </div>
 
             <div>
-              <span className="text-[10px] font-mono text-[#5B6470] uppercase block">
+              <span className="text-sm font-mono text-[#5B6470] uppercase block">
                 Emergency Resuscitation Allergies:
               </span>
-              <div className="font-mono text-[11px] text-[#14213D] font-medium">
+              <div className="font-mono text-sm text-[#14213D] font-medium">
                 {currentPatient.allergies.length > 0 ? (
                   currentPatient.allergies.join(', ')
                 ) : (
@@ -207,7 +207,7 @@ export const PatientQRCardView: React.FC = () => {
         {/* Minimal Clinical Resuscitation Subset */}
         <div className="mt-4 pt-3 border-t border-[#D8DCD4] text-xs space-y-2">
           <div>
-            <span className="text-[10px] font-mono text-[#5B6470] uppercase block">
+            <span className="text-sm font-mono text-[#5B6470] uppercase block">
               Key Medical Conditions:
             </span>
             <span className="font-medium text-[#14213D]">
@@ -216,15 +216,15 @@ export const PatientQRCardView: React.FC = () => {
           </div>
 
           <div>
-            <span className="text-[10px] font-mono text-[#5B6470] uppercase block">
+            <span className="text-sm font-mono text-[#5B6470] uppercase block">
               Critical Medications:
             </span>
-            <span className="font-mono text-[11px] text-[#5B6470]">
+            <span className="font-mono text-sm text-[#5B6470]">
               {currentPatient.currentMedications.join(' &middot; ')}
             </span>
           </div>
 
-          <div className="bg-[#F3F5F1] p-2 border border-[#D8DCD4] flex items-center justify-between text-[11px] font-mono">
+          <div className="bg-[#F3F5F1] p-2 border border-[#D8DCD4] flex items-center justify-between text-sm font-mono">
             <div>
               <span className="text-[#5B6470]">Emergency Kin:</span>{' '}
               <span className="font-semibold text-[#14213D]">{currentPatient.emergencyContact.name}</span>
@@ -234,7 +234,7 @@ export const PatientQRCardView: React.FC = () => {
         </div>
 
         {/* Card Footer */}
-        <div className="mt-4 pt-2 border-t border-[#D8DCD4] flex items-center justify-between text-[9px] font-mono text-[#5B6470]">
+        <div className="mt-4 pt-2 border-t border-[#D8DCD4] flex items-center justify-between text-xs font-mono text-[#5B6470]">
           <span>Security Token Hash: SHA256-SIGN-LUTH</span>
           <span>Scan releases emergency subset only</span>
         </div>

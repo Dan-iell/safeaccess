@@ -79,7 +79,7 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
                   </span>
                 </div>
               </div>
-              <span className="font-mono text-[10px] bg-white px-2 py-0.5 border border-[#D98E2A] text-[#9A6413] shrink-0">
+              <span className="font-mono text-sm bg-white px-2 py-0.5 border border-[#D98E2A] text-[#9A6413] shrink-0">
                 4h Auto-Expiry
               </span>
             </div>
@@ -129,7 +129,7 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Allergies */}
               <div className="border border-[#D8DCD4] p-3 bg-[#F3F5F1]">
-                <div className="flex items-center gap-1.5 font-mono uppercase text-[11px] text-[#5B6470] font-semibold mb-2">
+                <div className="flex items-center gap-1.5 font-mono uppercase text-sm text-[#5B6470] font-semibold mb-2">
                   <AlertCircle className="w-3.5 h-3.5 text-[#D98E2A]" />
                   <span>Documented Allergies</span>
                 </div>
@@ -151,17 +151,17 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
 
               {/* Blood & Genotype */}
               <div className="border border-[#D8DCD4] p-3 bg-[#F3F5F1]">
-                <div className="flex items-center gap-1.5 font-mono uppercase text-[11px] text-[#5B6470] font-semibold mb-2">
+                <div className="flex items-center gap-1.5 font-mono uppercase text-sm text-[#5B6470] font-semibold mb-2">
                   <Heart className="w-3.5 h-3.5 text-[#2F6F4E]" />
                   <span>Blood Group & Genotype</span>
                 </div>
                 <div className="flex items-center gap-4 text-sm font-semibold text-[#14213D]">
                   <div>
-                    <span className="text-[10px] text-[#5B6470] block font-mono">ABO/Rh:</span>
+                    <span className="text-sm text-[#5B6470] block font-mono">ABO/Rh:</span>
                     <span>{patient.bloodType}</span>
                   </div>
                   <div className="border-l border-[#D8DCD4] pl-4">
-                    <span className="text-[10px] text-[#5B6470] block font-mono">Hemoglobin Genotype:</span>
+                    <span className="text-sm text-[#5B6470] block font-mono">Hemoglobin Genotype:</span>
                     <span className={patient.genotype === 'SS' ? 'text-[#D98E2A]' : ''}>{patient.genotype}</span>
                   </div>
                 </div>
@@ -170,14 +170,14 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
 
             {/* Major Clinical Conditions */}
             <div>
-              <span className="font-mono uppercase text-[11px] text-[#5B6470] font-semibold block mb-2">
+              <span className="font-mono uppercase text-sm text-[#5B6470] font-semibold block mb-2">
                 Primary Diagnoses & Active Conditions
               </span>
               <ul className="border border-[#D8DCD4] divide-y divide-[#D8DCD4] bg-white">
                 {patient.majorConditions.map((cond, i) => (
                   <li key={i} className="p-2.5 flex items-center justify-between">
                     <span className="font-medium text-[#14213D]">{cond}</span>
-                    <span className="text-[10px] font-mono text-[#5B6470] uppercase">Active</span>
+                    <span className="text-sm font-mono text-[#5B6470] uppercase">Active</span>
                   </li>
                 ))}
               </ul>
@@ -185,7 +185,7 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
 
             {/* Current Medications */}
             <div>
-              <span className="font-mono uppercase text-[11px] text-[#5B6470] font-semibold block mb-2">
+              <span className="font-mono uppercase text-sm text-[#5B6470] font-semibold block mb-2">
                 Current Active Medications & Regimen
               </span>
               <ul className="border border-[#D8DCD4] divide-y divide-[#D8DCD4] bg-white font-mono text-xs">
@@ -199,7 +199,7 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
 
             {/* Emergency Contact */}
             <div className="border border-[#D8DCD4] p-3 bg-[#F3F5F1]">
-              <div className="flex items-center gap-1.5 font-mono uppercase text-[11px] text-[#5B6470] font-semibold mb-1">
+              <div className="flex items-center gap-1.5 font-mono uppercase text-sm text-[#5B6470] font-semibold mb-1">
                 <User className="w-3.5 h-3.5 text-[#5B6470]" />
                 <span>Next of Kin / Emergency Contact</span>
               </div>
@@ -213,13 +213,13 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
             {/* Full Clinical Progress Notes — OMITTED if QR subset per specification! */}
             {!isQrSubsetOnly ? (
               <div>
-                <div className="flex items-center gap-1.5 font-mono uppercase text-[11px] text-[#5B6470] font-semibold mb-2">
+                <div className="flex items-center gap-1.5 font-mono uppercase text-sm text-[#5B6470] font-semibold mb-2">
                   <FileText className="w-3.5 h-3.5 text-[#14213D]" />
                   <span>Clinical Progress & Attending Physician Notes</span>
                 </div>
                 <div className="border border-[#D8DCD4] p-3.5 bg-white text-xs leading-relaxed text-[#14213D]">
                   <p>{patient.clinicalNotes}</p>
-                  <div className="mt-3 pt-2 border-t border-[#D8DCD4] flex items-center justify-between text-[11px] text-[#5B6470] font-mono">
+                  <div className="mt-3 pt-2 border-t border-[#D8DCD4] flex items-center justify-between text-xs text-[#5B6470] font-mono">
                     <span>Admitted: {new Date(patient.admittedAt).toLocaleDateString()} at {new Date(patient.admittedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     {patient.isSensitive && (
                       <span className="text-[#D98E2A] font-semibold">Confidential Patient File</span>
@@ -228,7 +228,7 @@ export const PatientRecordModal: React.FC<PatientRecordModalProps> = ({
                 </div>
               </div>
             ) : (
-              <div className="p-3 bg-[#F3F5F1] border border-[#D8DCD4] text-[11px] text-[#5B6470] italic">
+              <div className="p-3 bg-[#F3F5F1] border border-[#D8DCD4] text-sm text-[#5B6470] italic">
                 Full clinical chart notes and longitudinal history are withheld on physical QR scan. Only immediate resuscitation & allergy parameters have been decrypted.
               </div>
             )}

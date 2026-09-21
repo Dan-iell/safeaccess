@@ -58,7 +58,7 @@ export const BreakGlassModal: React.FC<BreakGlassModalProps> = ({
               <h2 className="font-serif text-lg font-medium text-[#14213D] leading-tight">
                 Break-Glass Emergency Override
               </h2>
-              <p className="text-[11px] font-mono text-[#9A6413]">
+              <p className="text-sm font-mono text-[#9A6413]">
                 Unconditional Clinical Access &middot; Never Blocked
               </p>
             </div>
@@ -76,10 +76,10 @@ export const BreakGlassModal: React.FC<BreakGlassModalProps> = ({
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {/* Active staff credential confirmation */}
           <div className="bg-[#F3F5F1] border-l-4 border-[#14213D] p-3 text-xs">
-            <span className="font-mono text-[#5B6470] uppercase block text-[10px]">
+            <span className="font-mono text-[#5B6470] uppercase block text-sm">
               Attributed Healthcare Worker
             </span>
-            <span className="font-semibold text-[#14213D]">
+            <span className="font-semibold text-base text-[#14213D]">
               {currentUser?.name || 'Unauthenticated'}
             </span>
             <span className="text-[#5B6470] ml-2">
@@ -90,12 +90,12 @@ export const BreakGlassModal: React.FC<BreakGlassModalProps> = ({
           {/* Patient identification */}
           {targetPatient ? (
             <div className="bg-[#F3F5F1] border border-[#D8DCD4] p-3 text-xs">
-              <span className="font-mono text-[#5B6470] uppercase block text-[10px]">
+              <span className="font-mono text-[#5B6470] uppercase block text-sm">
                 Target Patient Record
               </span>
               <div className="flex items-center justify-between mt-1">
-                <span className="font-semibold text-sm text-[#14213D]">{targetPatient.name}</span>
-                <span className="font-mono text-[11px] bg-white px-2 py-0.5 border border-[#D8DCD4]">
+                <span className="font-semibold text-base text-[#14213D]">{targetPatient.name}</span>
+                <span className="font-mono text-sm bg-white px-2 py-0.5 border border-[#D8DCD4]">
                   {targetPatient.id} &middot; {targetPatient.ward} Ward
                 </span>
               </div>
@@ -135,7 +135,7 @@ export const BreakGlassModal: React.FC<BreakGlassModalProps> = ({
               required
               autoFocus
             />
-            <p className="text-[11px] text-[#5B6470] mt-1">
+            <p className="text-sm text-[#5B6470] mt-1">
               Specify the clinical emergency triggering this override. No dropdown selection is enforced.
             </p>
           </div>
