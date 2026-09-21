@@ -98,10 +98,10 @@ export const IntegrityCheck: React.FC = () => {
 
               {!lastIntegrityResult.isValid && lastIntegrityResult.brokenIndex !== undefined && (
                 <div className="mt-3 p-3 bg-white border border-[#B23A2E] font-mono text-xs">
-                  <div className="text-[11px] text-[#B23A2E] font-semibold uppercase mb-1">
+                  <div className="text-sm text-[#B23A2E] font-semibold uppercase mb-1">
                     Cryptographic Proof of Tampering:
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                     <div>
                       <span className="text-[#5B6470] block">Stored Hash in Log:</span>
                       <code className="text-[#B23A2E] font-semibold">
@@ -131,7 +131,7 @@ export const IntegrityCheck: React.FC = () => {
               Judge Demonstration Tool: Simulate Unauthorized Database Tamper
             </h2>
           </div>
-          <span className="text-[11px] font-mono bg-[#FBF1E3] text-[#9A6413] px-2 py-0.5 border border-[#D98E2A]">
+          <span className="text-sm font-mono bg-[#FBF1E3] text-[#9A6413] px-2 py-0.5 border border-[#D98E2A]">
             Direct Database Injection Simulator
           </span>
         </div>
@@ -142,7 +142,7 @@ export const IntegrityCheck: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end bg-[#F3F5F1] p-3 border border-[#D8DCD4]">
           <div className="sm:col-span-3">
-            <label className="block text-[10px] font-mono uppercase text-[#5B6470] mb-1">
+            <label className="block text-sm font-mono uppercase text-[#5B6470] mb-1">
               Select Log Entry Index
             </label>
             <select
@@ -159,7 +159,7 @@ export const IntegrityCheck: React.FC = () => {
           </div>
 
           <div className="sm:col-span-3">
-            <label className="block text-[10px] font-mono uppercase text-[#5B6470] mb-1">
+            <label className="block text-sm font-mono uppercase text-[#5B6470] mb-1">
               Field to Tamper
             </label>
             <select
@@ -175,7 +175,7 @@ export const IntegrityCheck: React.FC = () => {
           </div>
 
           <div className="sm:col-span-4">
-            <label className="block text-[10px] font-mono uppercase text-[#5B6470] mb-1">
+            <label className="block text-sm font-mono uppercase text-[#5B6470] mb-1">
               Injected Forged Value
             </label>
             <input
@@ -235,28 +235,28 @@ export const IntegrityCheck: React.FC = () => {
                 {/* Header row of block */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#14213D] text-white px-2 py-0.5 font-bold text-[11px]">
+                    <span className="bg-[#14213D] text-white px-2 py-0.5 font-bold text-sm">
                       #{entry.index}
                     </span>
-                    <span className="font-semibold text-sm text-[#14213D]">
+                    <span className="font-semibold text-base text-[#14213D]">
                       {entry.action.toUpperCase()}
                     </span>
-                    <span className="text-[#5B6470] text-[11px]">
+                    <span className="text-[#5B6470] text-sm">
                       by {entry.actorName} ({entry.actorRole})
                     </span>
                     {entry.isOffline && (
-                      <span className="bg-[#FBF1E3] border border-[#D98E2A] text-[#9A6413] px-1.5 text-[10px]">
+                      <span className="bg-[#FBF1E3] border border-[#D98E2A] text-[#9A6413] px-1.5 text-sm">
                         Queued Offline
                       </span>
                     )}
                   </div>
-                  <div className="text-[11px] text-[#5B6470]">
+                  <div className="text-sm text-[#5B6470]">
                     {new Date(entry.timestamp).toLocaleString()}
                   </div>
                 </div>
 
                 {/* Target & Payload Details */}
-                <div className="bg-[#F3F5F1] p-2.5 border border-[#D8DCD4] text-[11px] space-y-1 mb-2">
+                <div className="bg-[#F3F5F1] p-2.5 border border-[#D8DCD4] text-sm space-y-1 mb-2">
                   <div className="flex flex-wrap gap-4">
                     <div>
                       <span className="text-[#5B6470]">Patient:</span>{' '}
@@ -281,7 +281,7 @@ export const IntegrityCheck: React.FC = () => {
                 </div>
 
                 {/* Cryptographic Linkage */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px] bg-white p-2 border border-[#D8DCD4]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs bg-white p-2 border border-[#D8DCD4]">
                   <div className="truncate">
                     <span className="text-[#5B6470] block">prev_hash (Link to #{entry.index - 1}):</span>
                     <code className="text-[#5B6470]">{entry.prev_hash}</code>
@@ -300,7 +300,7 @@ export const IntegrityCheck: React.FC = () => {
 
                 {/* Warning note if severed */}
                 {isSeveredHere && (
-                  <div className="mt-2 text-[11px] text-[#B23A2E] font-semibold">
+                  <div className="mt-2 text-sm text-[#B23A2E] font-semibold">
                     &uarr; INTEGRITY FAILURE: Data within entry #{entry.index} does not compute to this hash.
                   </div>
                 )}

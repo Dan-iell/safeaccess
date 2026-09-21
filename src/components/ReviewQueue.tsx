@@ -66,7 +66,7 @@ export const ReviewQueue: React.FC = () => {
               <button
                 key={status}
                 onClick={() => setFilterStatus(status)}
-                className={`px-3 py-1 border uppercase text-[11px] font-medium transition-colors cursor-pointer ${
+                className={`px-3 py-1 border uppercase text-sm font-medium transition-colors cursor-pointer ${
                   filterStatus === status
                     ? 'bg-[#14213D] text-white border-[#14213D]'
                     : 'bg-white text-[#5B6470] border-[#D8DCD4] hover:border-[#14213D]'
@@ -92,7 +92,7 @@ export const ReviewQueue: React.FC = () => {
       {/* Flat List of Override Events */}
       <div className="border border-[#D8DCD4] bg-white divide-y divide-[#D8DCD4]">
         {/* Table header */}
-        <div className="bg-[#F3F5F1] px-4 py-2.5 text-[11px] font-mono uppercase text-[#5B6470] grid grid-cols-12 gap-2">
+        <div className="bg-[#F3F5F1] px-4 py-2.5 text-sm font-mono uppercase text-[#5B6470] grid grid-cols-12 gap-2">
           <div className="col-span-3 sm:col-span-3">Healthcare Worker</div>
           <div className="col-span-3 sm:col-span-3">Patient Record</div>
           <div className="col-span-3 sm:col-span-3">Override Reason</div>
@@ -123,20 +123,20 @@ export const ReviewQueue: React.FC = () => {
                 >
                   {/* Staff Member */}
                   <div className="col-span-3 sm:col-span-3">
-                    <div className="font-semibold text-xs text-[#14213D]">
+                    <div className="font-semibold text-base text-[#14213D]">
                       {event.staffName}
                     </div>
-                    <div className="text-[11px] font-mono text-[#5B6470] capitalize">
+                    <div className="text-sm font-mono text-[#5B6470] capitalize">
                       {event.staffRole} &middot; {event.staffWard} Ward
                     </div>
                   </div>
 
                   {/* Patient */}
                   <div className="col-span-3 sm:col-span-3">
-                    <div className="font-semibold text-xs text-[#14213D]">
+                    <div className="font-semibold text-base text-[#14213D]">
                       {event.patientName}
                     </div>
-                    <div className="text-[11px] font-mono text-[#5B6470]">
+                    <div className="text-sm font-mono text-[#5B6470]">
                       {event.patientId} &middot; {event.patientWard}
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export const ReviewQueue: React.FC = () => {
                   {/* Elapsed / Timer */}
                   <div className="col-span-2 hidden sm:block font-mono text-xs">
                     <span className="text-[#14213D] block">{getTimeElapsed(event.timestamp)}</span>
-                    <span className="text-[10px] text-[#D98E2A]">
+                    <span className="text-xs text-[#D98E2A]">
                       {getTimeRemaining(event.autoExpiry)}
                     </span>
                   </div>
@@ -157,7 +157,7 @@ export const ReviewQueue: React.FC = () => {
                   {/* Status chip */}
                   <div className="col-span-3 sm:col-span-1 text-right flex items-center justify-end gap-1.5">
                     <span
-                      className={`text-[10px] font-mono px-2 py-0.5 uppercase whitespace-nowrap ${
+                      className={`text-sm font-mono px-2 py-0.5 uppercase whitespace-nowrap ${
                         event.reviewStatus === 'pending'
                           ? 'bg-[#FBF1E3] text-[#9A6413] border border-[#D98E2A]'
                           : event.reviewStatus === 'flagged as abuse'
@@ -180,7 +180,7 @@ export const ReviewQueue: React.FC = () => {
                   <div className="bg-[#F3F5F1] p-4 border-t border-[#D8DCD4] text-xs space-y-4">
                     {/* Calm Plain-Language Voice Summary */}
                     <div className="p-3 bg-white border border-[#D8DCD4]">
-                      <span className="text-[10px] font-mono text-[#5B6470] uppercase block mb-1">
+                      <span className="text-sm font-mono text-[#5B6470] uppercase block mb-1">
                         Audited Event Summary
                       </span>
                       <p className="text-sm font-serif text-[#14213D]">
@@ -191,8 +191,8 @@ export const ReviewQueue: React.FC = () => {
                     </div>
 
                     {/* Cryptographic Ledger Record */}
-                    <div className="bg-white border border-[#D8DCD4] p-3 font-mono text-[11px] space-y-1.5">
-                      <div className="text-[10px] text-[#5B6470] uppercase flex justify-between border-b border-[#D8DCD4] pb-1">
+                    <div className="bg-white border border-[#D8DCD4] p-3 font-mono text-sm space-y-1.5">
+                      <div className="text-xs text-[#5B6470] uppercase flex justify-between border-b border-[#D8DCD4] pb-1">
                         <span>Ledger Entry Metadata</span>
                         <span>Log ID: {event.logEntryId}</span>
                       </div>
@@ -223,12 +223,12 @@ export const ReviewQueue: React.FC = () => {
                     {/* Reviewer notes if already reviewed */}
                     {event.reviewedAt && (
                       <div className="bg-white border border-[#D8DCD4] p-3">
-                        <span className="text-[10px] font-mono text-[#5B6470] uppercase block">
+                        <span className="text-sm font-mono text-[#5B6470] uppercase block">
                           Supervisor Decision Record
                         </span>
                         <div className="mt-1 flex items-center gap-2">
                           <span className="font-semibold text-[#14213D]">{event.reviewedBy}</span>
-                          <span className="text-[11px] text-[#5B6470]">
+                          <span className="text-sm text-[#5B6470]">
                             at {new Date(event.reviewedAt).toLocaleTimeString()}
                           </span>
                         </div>

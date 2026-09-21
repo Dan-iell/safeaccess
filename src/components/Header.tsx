@@ -41,20 +41,20 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="border-b border-[#D8DCD4] bg-[#FFFFFF] sticky top-0 z-30">
-      {/* Top hospital & hackathon strip */}
-      <div className="bg-[#14213D] text-[#F3F5F1] px-4 py-1.5 text-xs flex flex-wrap items-center justify-between font-mono">
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#2F6F4E]"></span>
-          <span>ICSC 2026 Universities Hackathon &middot; Track C: Health & Medical Systems</span>
+      {/* Top hospital & hackathon strip: slim status line, not a title bar */}
+      <div className="bg-[#14213D] text-[#F3F5F1] px-4 py-1 text-xs flex items-center justify-between font-mono whitespace-nowrap overflow-hidden gap-4">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#2F6F4E] shrink-0"></span>
+          <span className="truncate">ICSC 2026 Universities Hackathon &middot; Track C: Health & Medical Systems</span>
         </div>
-        <div className="flex items-center gap-4 text-[#A8B2C4]">
+        <div className="hidden sm:flex items-center gap-4 text-[#A8B2C4] shrink-0">
           <span>LUTH Apex Access-Control Node #04</span>
           <span>Sha-256 Ledger: {isChainBroken ? 'COMPROMISED' : 'CONTINUOUS'}</span>
         </div>
       </div>
 
       {/* Main Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <SafeAccessLogo size={32} />
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="font-semibold text-lg tracking-tight text-[#14213D]">
                 SafeAccess
               </span>
-              <span className="text-[11px] font-mono uppercase px-1.5 py-0.5 bg-[#F3F5F1] text-[#5B6470] border border-[#D8DCD4] rounded">
+              <span className="text-sm font-mono uppercase px-1.5 py-0.5 bg-[#F3F5F1] text-[#5B6470] border border-[#D8DCD4] rounded">
                 Prototype v1.0
               </span>
             </div>
@@ -76,16 +76,16 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Staff Credential + Persona Switcher */}
         {currentUser && (
           <div className="flex items-center gap-2 relative">
-            <div className="border border-[#D8DCD4] bg-[#F3F5F1] p-2 rounded flex items-center gap-3">
+            <div className="border border-[#D8DCD4] bg-[#F3F5F1] p-1.5 rounded flex items-center gap-3">
               <div className="w-8 h-8 rounded bg-[#14213D] text-white flex items-center justify-center font-serif text-sm font-semibold">
                 {currentUser.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
               </div>
               <div className="text-left">
                 <div className="flex items-center gap-2">
-                  <span className="font-medium text-sm text-[#14213D] leading-tight">
+                  <span className="font-medium text-base text-[#14213D] leading-tight">
                     {currentUser.name}
                   </span>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded uppercase ${dutyBadgeColors[currentUser.dutyStatus]}`}>
+                  <span className={`text-sm font-mono px-1.5 py-0.2 rounded uppercase ${dutyBadgeColors[currentUser.dutyStatus]}`}>
                     {currentUser.dutyStatus}
                   </span>
                 </div>
@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({
 
               {/* Duty toggle */}
               <div className="border-l border-[#D8DCD4] pl-2 flex flex-col gap-0.5">
-                <span className="text-[9px] font-mono text-[#5B6470] uppercase">Duty:</span>
+                <span className="text-xs font-mono text-[#5B6470] uppercase">Duty:</span>
                 <select
                   value={currentUser.dutyStatus}
                   onChange={(e) => updateStaffDutyStatus(currentUser.id, e.target.value as DutyStatus)}
@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({
                 title="Switch Staff Persona for Testing"
               >
                 <UserCheck className="w-3.5 h-3.5" />
-                <span className="hidden md:inline text-[11px]">Switch</span>
+                <span className="hidden md:inline text-sm">Switch</span>
                 <ChevronDown className="w-3 h-3" />
               </button>
             </div>
@@ -131,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Quick Switch Dropdown */}
             {isStaffMenuOpen && (
               <div className="absolute right-0 top-full mt-1.5 w-80 bg-white border border-[#14213D] shadow-none z-50 p-2">
-                <div className="text-[11px] font-mono uppercase text-[#5B6470] px-2 py-1 border-b border-[#D8DCD4] mb-1 flex justify-between">
+                <div className="text-sm font-mono uppercase text-[#5B6470] px-2 py-1 border-b border-[#D8DCD4] mb-1 flex justify-between">
                   <span>Judge Persona Quick-Switch</span>
                   <span>PIN: (mocked)</span>
                 </div>
@@ -150,17 +150,17 @@ export const Header: React.FC<HeaderProps> = ({
                       }`}
                     >
                       <div>
-                        <div className="text-[#14213D] font-semibold">{staff.name}</div>
-                        <div className="text-[#5B6470] text-[11px] capitalize">
+                        <div className="text-[#14213D] font-semibold text-base">{staff.name}</div>
+                        <div className="text-[#5B6470] text-sm capitalize">
                           {staff.role} &middot; {staff.ward} Ward
                         </div>
                         {staff.extraDutyWards && (
-                          <div className="text-[10px] text-[#2F6F4E]">
+                          <div className="text-sm text-[#2F6F4E]">
                             Covering: {staff.extraDutyWards.join(', ')}
                           </div>
                         )}
                       </div>
-                      <span className={`text-[9px] font-mono px-1 py-0.5 uppercase ${dutyBadgeColors[staff.dutyStatus]}`}>
+                      <span className={`text-xs font-mono px-1 py-0.5 uppercase ${dutyBadgeColors[staff.dutyStatus]}`}>
                         {staff.dutyStatus}
                       </span>
                     </button>
@@ -214,7 +214,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => setActiveTab('patients')}
           id="nav-tab-patients"
-          className={`px-4 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${
+          className={`px-4 py-1.5 text-base font-medium border-b-2 whitespace-nowrap transition-colors ${
             activeTab === 'patients'
               ? 'border-[#14213D] text-[#14213D] font-semibold bg-[#F3F5F1]'
               : 'border-transparent text-[#5B6470] hover:text-[#14213D] hover:bg-[#FAFAF8]'
@@ -226,7 +226,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => setActiveTab('review-queue')}
           id="nav-tab-review-queue"
-          className={`px-4 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-colors flex items-center gap-1.5 ${
+          className={`px-4 py-1.5 text-base font-medium border-b-2 whitespace-nowrap transition-colors flex items-center gap-1.5 ${
             activeTab === 'review-queue'
               ? 'border-[#14213D] text-[#14213D] font-semibold bg-[#F3F5F1]'
               : 'border-transparent text-[#5B6470] hover:text-[#14213D] hover:bg-[#FAFAF8]'
@@ -234,7 +234,7 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <span>Supervisor Review Queue</span>
           {pendingOverridesCount > 0 && (
-            <span className="bg-[#D98E2A] text-white text-[10px] font-mono px-1.5 py-0.2 rounded-full">
+            <span className="bg-[#D98E2A] text-white text-sm font-mono px-1.5 py-0.2 rounded-full">
               {pendingOverridesCount}
             </span>
           )}
@@ -243,7 +243,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => setActiveTab('integrity')}
           id="nav-tab-integrity"
-          className={`px-4 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-colors flex items-center gap-1.5 ${
+          className={`px-4 py-1.5 text-base font-medium border-b-2 whitespace-nowrap transition-colors flex items-center gap-1.5 ${
             activeTab === 'integrity'
               ? 'border-[#14213D] text-[#14213D] font-semibold bg-[#F3F5F1]'
               : 'border-transparent text-[#5B6470] hover:text-[#14213D] hover:bg-[#FAFAF8]'
@@ -252,7 +252,7 @@ export const Header: React.FC<HeaderProps> = ({
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Tamper & Integrity Check</span>
           {isChainBroken && (
-            <span className="bg-[#B23A2E] text-white text-[10px] font-mono px-1.5 py-0.2 rounded-full">
+            <span className="bg-[#B23A2E] text-white text-sm font-mono px-1.5 py-0.2 rounded-full">
               BROKEN
             </span>
           )}
@@ -261,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => setActiveTab('abuse-demo')}
           id="nav-tab-abuse-demo"
-          className={`px-4 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${
+          className={`px-4 py-1.5 text-base font-medium border-b-2 whitespace-nowrap transition-colors ${
             activeTab === 'abuse-demo'
               ? 'border-[#14213D] text-[#14213D] font-semibold bg-[#F3F5F1]'
               : 'border-transparent text-[#5B6470] hover:text-[#14213D] hover:bg-[#FAFAF8]'
@@ -273,7 +273,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => setActiveTab('qr-cards')}
           id="nav-tab-qr-cards"
-          className={`px-4 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${
+          className={`px-4 py-1.5 text-base font-medium border-b-2 whitespace-nowrap transition-colors ${
             activeTab === 'qr-cards'
               ? 'border-[#14213D] text-[#14213D] font-semibold bg-[#F3F5F1]'
               : 'border-transparent text-[#5B6470] hover:text-[#14213D] hover:bg-[#FAFAF8]'

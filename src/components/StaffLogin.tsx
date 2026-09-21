@@ -108,7 +108,7 @@ export const StaffLogin: React.FC<StaffLoginProps> = ({ onSuccess }) => {
           <span className="text-xs font-mono uppercase font-semibold text-[#14213D]">
             Judge Quick-Select Roster
           </span>
-          <span className="text-[11px] text-[#5B6470]">Click to sign in instantly</span>
+          <span className="text-sm text-[#5B6470]">Click to sign in instantly</span>
         </div>
         <div className="space-y-1.5 text-xs">
           {allStaff.slice(0, 6).map((staff) => (
@@ -118,17 +118,17 @@ export const StaffLogin: React.FC<StaffLoginProps> = ({ onSuccess }) => {
               className="w-full text-left p-2 border border-[#D8DCD4] hover:border-[#14213D] hover:bg-[#F3F5F1] flex items-center justify-between transition-colors"
             >
               <div>
-                <span className="font-semibold text-[#14213D]">{staff.name}</span>
-                <span className="text-[#5B6470] text-[11px] ml-1.5">
+                <span className="font-semibold text-base text-[#14213D]">{staff.name}</span>
+                <span className="text-[#5B6470] text-sm ml-1.5">
                   ({staff.role} &middot; {staff.ward})
                 </span>
                 {staff.extraDutyWards && (
-                  <span className="text-[10px] text-[#2F6F4E] block">
+                  <span className="text-sm text-[#2F6F4E] block">
                     + Duty Grant: {staff.extraDutyWards.join(', ')}
                   </span>
                 )}
               </div>
-              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase ${
+              <span className={`text-sm font-mono px-1.5 py-0.5 rounded uppercase ${
                 staff.dutyStatus === 'on shift' ? 'bg-[#2F6F4E] text-white' :
                 staff.dutyStatus === 'on call' ? 'bg-[#D98E2A] text-white' :
                 'bg-[#5B6470] text-white'

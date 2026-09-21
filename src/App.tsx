@@ -138,7 +138,7 @@ const MainApp: React.FC = () => {
                 <h3 className="font-serif font-semibold text-sm text-[#14213D] mb-1">
                   3. Key Architectural Pillars
                 </h3>
-                <ul className="space-y-1.5 text-[11px] font-mono text-[#5B6470]">
+                <ul className="space-y-1.5 text-sm font-mono text-[#5B6470]">
                   <li>&bull; <strong className="text-[#14213D]">Role + Ward + Duty Scoping:</strong> Access is computed live from shift assignment, not blanket logins.</li>
                   <li>&bull; <strong className="text-[#14213D]">Tamper-Evident Ledger:</strong> SHA-256 hash chain via browser SubtleCrypto; directly editing records severs the chain visibly.</li>
                   <li>&bull; <strong className="text-[#14213D]">Offline Resilience:</strong> Fully functional during grid outages; queues logs and re-verifies chain continuity upon reconnect.</li>
